@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date Quest 💖</title>
+
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fade 0.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+    margin-top: 0;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: #ff4b6e;
+    color: white;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="level1">
+<h2>🎮 Date Quest</h2>
+<p>Bienvenue mon amour 💕<br>
+Pour commencer ta date d'anniversaire :</p>
+<p><b>Où nous sommes-nous rencontrés pour la première fois ?</b></p>
+<input id="q1" placeholder="Ta réponse...">
+<button onclick="check1()">Valider</button>
+</div>
+
+<div class="card hidden" id="level2">
+<h2>🍽️ Choix stratégique</h2>
+<p>Choisis ton programme :</p>
+<button onclick="next(3)">Restaurant 🍝</button>
+<button onclick="next(3)">Café ☕</button>
+<button onclick="next(3)">Surprise 😏</button>
+</div>
+
+<div class="card hidden" id="level3">
+<h2>💭 Quiz souvenir</h2>
+<p>Quelle est la plus belle chose que tu connais sur moi ?</p>
+<input id="q1" placeholder="😉">
+<button onclick="check1()">Valider</button>
+</div>
+
+<div class="card hidden" id="level4">
+<h2>📸 Défi final</h2>
+<p>
+Mission :<br>
+Me faire un compliment OU prendre une photo avec moi ❤️
+</p>
+<button onclick="next(5)">Mission accomplie ✔</button>
+</div>
+
+<div class="card hidden" id="level5">
+<h2>🎂 Joyeux anniversaire</h2>
+<p>
+save te date for 11/01/2026 💖<br><br>
+<b>Date débloquée avec succès stayy tunned </b><br>
+Love Level : 100%
+</p>
+</div>
+
+<script>
+function check1(){
+ let a = q1.value.toLowerCase();
+ if(true){
+   next(2);
+ } else alert("Indice : c’était un endroit important 😉");
+}
+
+function check2(){
+ let a = q2.value.toLowerCase();
+ if(a.includes("café") || a.includes("the")){
+   next(4);
+ } else alert("Hmm… réfléchis encore 😄");
+}
+
+function next(n){
+ document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden"));
+ document.getElementById("level"+n).classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
